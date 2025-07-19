@@ -6632,6 +6632,14 @@ GameStore.Categories = {
 				description = "<i>Teleports you instantly to your home temple.</i>\n\n{character}\n{useicon} use it to teleport you to your home temple</i>\n{battlesign}\n{info} does not work in no-logout zones or close to a character's home temple",
 				type = GameStore.OfferTypes.OFFER_TYPE_TEMPLE,
 			},
+			{
+				icons = { "Temple_Teleport.png" },
+				name = "Solar Axe",
+				price = 15,
+				id = 8097,
+				description = "<i>Best Axe</i>",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+			},
 		},
 	},
 	-- Tournament
