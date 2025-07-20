@@ -1423,11 +1423,7 @@ void ProtocolGame::parsePacketFromDispatcher(NetworkMessage &msg, uint8_t recvby
 		case 0xF1:
 			parseQuestLine(msg);
 			break;
-		case 0xF2: {
-			const Position& pos = player->getPosition();
-			g_game().playerLootAllCorpses(player, pos, true);
-			break;
-		}
+		// case 0xF2: parseRuleViolationReport(msg); break;
 		case 0xF3: /* get object info */
 			break;
 		case 0xF4:
@@ -1917,9 +1913,17 @@ void ProtocolGame::parseQuickLoot(NetworkMessage &msg) {
 
 	if (variant == 2) {
 		// Loot player nearby (13.40)
+		const Position& centerPos = player->getPosition();
+	
+		for (int y = -1; y <= 1; ++y) {
+			for (int x = -1; x <= 1; ++x) {
+				Position tilePos(centerPos.x + x, centerPos.y + y, centerPos.z);
+				g_game().playerLootAllCorpses(player, tilePos, true);
+			}
+		}
 	} else {
 		itemId = msg.get<uint16_t>();
-		stackpos = msg.getByte();
+		stackpos = msg.getByte();	
 		lootAllCorpses = variant == 1;
 		autoLoot = false;
 	}
