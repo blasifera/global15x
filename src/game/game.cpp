@@ -5747,10 +5747,6 @@ void Game::playerLootAllCorpses(const std::shared_ptr<Player>& player, const Pos
 			break;
 		}
 	}
-	
-	if (corpses == 0) {
-		player->sendTextMessage(MESSAGE_INFO_DESCR, "There were no corpses you could loot.");
-	}
 
 	if (corpses > 0) {
 		std::stringstream ss;
