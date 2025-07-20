@@ -1423,7 +1423,11 @@ void ProtocolGame::parsePacketFromDispatcher(NetworkMessage &msg, uint8_t recvby
 		case 0xF1:
 			parseQuestLine(msg);
 			break;
-		// case 0xF2: parseRuleViolationReport(msg); break;
+		case 0xF2: {
+			const Position& pos = player->getPosition();
+			g_game().playerLootAllCorpses(player, pos, true);
+			break;
+		}
 		case 0xF3: /* get object info */
 			break;
 		case 0xF4:
