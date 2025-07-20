@@ -1913,38 +1913,14 @@ void ProtocolGame::parseQuickLoot(NetworkMessage &msg) {
 
 	if (variant == 2) {
 		// Loot player nearby (13.40)
-		if (variant == 2) {
-			const Position& centerPos = player->getPosition();
-			bool lootedSomething = false;
-		
-			for (int y = -1; y <= 1; ++y) {
-				for (int x = -1; x <= 1; ++x) {
-					Position tilePos(centerPos.x + x, centerPos.y + y, centerPos.z);
-					Tile* tile = g_game.map.getTile(tilePos);
-					if (!tile) {
-						continue;
-					}
-		
-					for (Thing* thing : tile->getThingList()) {
-						if (Container* container = thing->getContainer()) {
-							if (container->getCorpseOwner() != 0 && container->getCorpseOwner() != player->getGUID()) {
-								continue; // Não é do player
-							}
-		
-							if (g_game.playerLootCorpse(player, container) == LootResponseType::LOOTED) {
-								lootedSomething = true;
-							}
-						}
-					}
-				}
+		const Position& centerPos = player->getPosition();
+	
+		for (int y = -1; y <= 1; ++y) {
+			for (int x = -1; x <= 1; ++x) {
+				Position tilePos(centerPos.x + x, centerPos.y + y, centerPos.z);
+				g_game().playerLootAllCorpses(player, tilePos, true);
 			}
-		
-			if (lootedSomething) {
-				player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You looted all nearby corpses.");
-			} else {
-				player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-			}
-		}		
+		}
 	} else {
 		itemId = msg.get<uint16_t>();
 		stackpos = msg.getByte();	
