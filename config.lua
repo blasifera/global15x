@@ -480,7 +480,7 @@ resetSessionsOnStartup = false
 -- NOTE: logPlayersStatements will log all player statements.
 allowChangeOutfit = true
 freePremium = false
-kickIdlePlayerAfterMinutes = 15
+kickIdlePlayerAfterMinutes = 60
 maxMessageBuffer = 4
 allowWalkthrough = true
 coinPacketSize = 25
@@ -550,12 +550,12 @@ enableScreenshots = false
 -- NOTE: rateExp, rateSkill and rateMagic is used when 'rateUseStages = false' - or a fallback only
 -- To configure rates see file data/stages.lua
 -- lowLevelBonusExp works up to level 50
-rateUseStages = false
+rateUseStages = true
 lowLevelBonusExp = 50
-rateExp = 100
-rateSkill = 180
-rateLoot = 5
-rateMagic = 100
+rateExp = 1
+rateSkill = 1
+rateLoot = 3
+rateMagic = 1
 rateSpawn = 3
 
 -- Killing in the name of Quest
