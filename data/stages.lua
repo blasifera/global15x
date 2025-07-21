@@ -15,9 +15,7 @@ experienceStages = {
 	{ minlevel = 701, maxlevel = 800, multiplier = 5 },
 	{ minlevel = 801, maxlevel = 900, multiplier = 4 },
 	{ minlevel = 901, maxlevel = 1000, multiplier = 3 },
-	{ minlevel = 1001, maxlevel = 1200, multiplier = 2 },
-	{ minlevel = 1201, maxlevel = 1400, multiplier = 1.5 },
-	{ minlevel = 1401, maxlevel = 999999, multiplier = 1.2 },
+	{ minlevel = 1001, maxlevel = 999999, multiplier = 2 },
 }
 
 skillsStages = {
