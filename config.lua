@@ -84,8 +84,8 @@ loginProtocolPort = 7171
 gameProtocolPort = 7172
 statusProtocolPort = 7171
 maxPlayers = 0
-serverName = "Crystal"
-serverMotd = "Welcome to the Crystal Server!"
+serverName = "Sovngarde"
+serverMotd = "Welcome to the Sovngarde Server!"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
 maxPacketsPerSecond = 25
@@ -632,9 +632,9 @@ defaultPriority = "high"
 startupDatabaseOptimization = true
 
 -- Status server information
-ownerName = "Tryller"
+ownerName = "bla"
 ownerEmail = "@gmail.com"
-url = "https://github.com/zimbadev/crystalserver"
+url = ""
 location = "South America"
 
 -- Sends Discord webhook notifications on startup, raids and shutdown.
